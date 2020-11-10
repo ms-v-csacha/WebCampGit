@@ -28,9 +28,9 @@ namespace demomvp
 
     public partial class NestedExceptionCrash : System.Web.UI.Page
     {
-        private void RaiseEvent() => RaiseEventVoidAsync();
+        private void RaiseEvent() => RaiseEventVoid();
 
-        private async void RaiseEventVoidAsync() => throw new Exception("Error!");
+        private void RaiseEventVoid() { throw new Exception("Error!"); }
 
         protected  void Page_Load(object sender, EventArgs e)
         {
@@ -57,7 +57,7 @@ namespace demomvp
         {
             try
             {
-                RaiseEventVoidAsync();
+                RaiseEventVoid();
             }
             catch
             {
